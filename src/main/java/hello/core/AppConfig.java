@@ -22,6 +22,9 @@ public class AppConfig {
     public MemberService memberService(){
 
 //        return new MemberServiceImpl(new MemoryMemberRepository());
+        //MemberServiceImpl 구현객체의 주소를 저장해 반환한다 -> 빈에 등록되는것은 Impl 참조 값이다
+//        MemberService memberService = new MemberServiceImpl(memberRepository());
+
         return new MemberServiceImpl(memberRepository());
     }
 
