@@ -65,6 +65,7 @@ public class ApplicationContextBasicFindTest {
 //        ac.getBean("xxxx", MemberService.class);
 
         //juint 5 로 오면서 Lamda Stream을 사용하여 실패를 검증한다
+        //예외 발생시 테스트 성공
         org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class,
                 () -> ac.getBean("xxxx", MemberService.class));
 
