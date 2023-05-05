@@ -1,7 +1,11 @@
 package hello.core;
 
+import hello.core.discount.DiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import hello.core.order.OrderService;
+import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +25,19 @@ import org.springframework.context.annotation.FilterType;
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
+
+//    @Autowired
+//    MemberRepository memberRepository;
+//    @Autowired
+//    DiscountPolicy discountPolicy;
+//
+//
+//    //스프링에서만 사용하는 클래스라 가능
+//    @Bean
+//    OrderService orderService(){
+//        //생성자 주입 - 수동으로 넣어줄 인스턴스 지정할때 Autowired 사용 가능
+//        return new OrderServiceImpl(memberRepository, discountPolicy);
+//    }
 
     //아무것도 없이 component 만 붙이면 끝인가? 그 대상은 어떻게 지정하나?
     // = @Autowired를 생성자에 붙여준다

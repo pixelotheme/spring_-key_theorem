@@ -22,15 +22,51 @@ public class OrderServiceImpl implements OrderService{
 
     //final 을 지워줬다 -> 무조건 값이 할당 되어야 하기 떄문
     //DIP 원칙 준수 -> 그러나 값이 없어 null 예외 발생 - discountPolicy. 점 찍는순간 할당된것이 없어서 예외
-    private final DiscountPolicy discountPolicy;
-    private final MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    //v2 그러나 Autowired를 필드 주입을 권장하지 않는다
+//    @Autowired private DiscountPolicy discountPolicy;
+//    @Autowired private MemberRepository memberRepository;
 
-   //생성자 주입
-    @Autowired // 여러 의존관계도 한번에 주입 받을수 있다
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
+//
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+
+//---------------수정자 주입
+//    @Autowired(required = false)
+//    public void setMemberRepository(MemberRepository memberRepository){
+//        System.out.println("memberRepository = " + memberRepository);
+//        this.memberRepository = memberRepository;
+//    }
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy){
+//        System.out.println("discountPolicy = " + discountPolicy);
+//        this.discountPolicy = discountPolicy;
+//    }
+
+    //------------이렇게 2개의 생성자가 있다면 autowired 지정해주어야한다
+//    public OrderServiceImpl() {
+//
+//    }
+
+    //생성자 주입
+//    @Autowired // 여러 의존관계도 한번에 주입 받을수 있다
+    //생성자가 하나만 있다면 Autowired 지정하지 않아도 된다
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("1memberRepository = " + memberRepository);
+        System.out.println("1discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+//    이런식으로 의존관계 주입을 수정할수 있게 만들면 안된다
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy){
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice){
