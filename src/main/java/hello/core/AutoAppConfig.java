@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -22,4 +25,8 @@ public class AutoAppConfig {
     //아무것도 없이 component 만 붙이면 끝인가? 그 대상은 어떻게 지정하나?
     // = @Autowired를 생성자에 붙여준다
 
+    @Bean("memoryMemberRepository")
+    MemberRepository memberRepository(){
+        return new MemoryMemberRepository();
+    }
 }
