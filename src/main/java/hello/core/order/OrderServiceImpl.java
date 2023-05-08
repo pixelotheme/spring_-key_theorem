@@ -1,12 +1,8 @@
 package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
-import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,8 +18,10 @@ public class OrderServiceImpl implements OrderService{
 
     //final 을 지워줬다 -> 무조건 값이 할당 되어야 하기 떄문
     //DIP 원칙 준수 -> 그러나 값이 없어 null 예외 발생 - discountPolicy. 점 찍는순간 할당된것이 없어서 예외
-    private DiscountPolicy discountPolicy;
-    private MemberRepository memberRepository;
+//    final = 초기화를 하거나 생성자 호출시 에만 들어가 불변성을 지킬수 있다
+    // 무조건 값이 할당 되어야 해서 컴파일 시점에 오류난다
+    private final DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
     //v2 그러나 Autowired를 필드 주입을 권장하지 않는다
 //    @Autowired private DiscountPolicy discountPolicy;
 //    @Autowired private MemberRepository memberRepository;
