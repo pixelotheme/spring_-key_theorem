@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 	//orderService 에 주입해줄수 있어 순수한 java 테스트 코드 사용 가능
 class CoreApplicationTests {
 
-	//스프링 컨테이너에서진행
+	//스프링 컨테이너에서진행 - 바로 테스트 가능하다
 //	@Autowired
 //	OrderService orderService;
 

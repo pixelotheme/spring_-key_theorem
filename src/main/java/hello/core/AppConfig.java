@@ -46,8 +46,8 @@ public class AppConfig {
     public OrderService orderService(){
         System.out.println("call AppConfig.orderService");
         //필드 자동주입 테스트중 주석처리
-//        return new OrderServiceImpl(memberRepository(), discountPolicy());
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
 
     //할인정책 명시적으로 확실히 볼수있다 - 역할에 따른 구현이 잘보인다

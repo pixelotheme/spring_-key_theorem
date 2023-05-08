@@ -42,8 +42,11 @@ public class AutoAppConfig {
     //아무것도 없이 component 만 붙이면 끝인가? 그 대상은 어떻게 지정하나?
     // = @Autowired를 생성자에 붙여준다
 
-    @Bean("memoryMemberRepository")
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+
+    //스프링 빈 충돌 테스트 - 스프링 부트는 빈 중복시 수동 등록 빈이어도 덮어쓰지 않고
+    // 에러 발생 시킨다 - BeanDefinitionOverrideException
+//    @Bean("memoryMemberRepository")
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
 }
