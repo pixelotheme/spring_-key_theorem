@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  * 롬북 적용
  * */
 
-@RequiredArgsConstructor // final이 붙은 필수값의 생성자 주입 코드를 그대로 만들어준다
-@Component
+//@RequiredArgsConstructor // final이 붙은 필수값의 생성자 주입 코드를 그대로 만들어준다
+//@Component
 public class OrderServiceImplOld implements OrderService{
 
     //메모리 저장소를 주입
@@ -65,12 +65,12 @@ public class OrderServiceImplOld implements OrderService{
 //    @Autowired // 여러 의존관계도 한번에 주입 받을수 있다
     //생성자가 하나만 있다면 Autowired 지정하지 않아도 된다
 //    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        System.out.println("1memberRepository = " + memberRepository);
-//        System.out.println("1discountPolicy = " + discountPolicy);
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImplOld(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("1memberRepository = " + memberRepository);
+        System.out.println("1discountPolicy = " + discountPolicy);
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 //    이런식으로 의존관계 주입을 수정할수 있게 만들면 안된다
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy){
