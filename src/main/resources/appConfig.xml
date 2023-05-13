@@ -18,7 +18,7 @@
 <!--        <constructor-arg name="discountPolicy" ref="discountPolicy"/>
             같은 타입의 빈이 2개 이상 존재할시 테스트
 -->
-        <constructor-arg name="rateDiscountPolicy" ref="discountPolicy"/>
+        <constructor-arg name="discountPolicy" ref="discountPolicy"/>
     </bean>
 
     <bean id="discountPolicy" class="hello.core.discount.RateDiscountPolicy">
