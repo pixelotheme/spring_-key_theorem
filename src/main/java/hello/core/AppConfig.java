@@ -20,8 +20,6 @@ public class AppConfig {
     //@Bean orderService() -> new MemoryMemberRepository(),RateDiscountPolicy()
     //싱글톤이 깨지는것이 아닌가?
 
-
-
     // 이전에는 인터페이스에 어떤 객체가 들어갈지 serviceImpl 에서 직접 설정해 줬었다
     //생성자를 통해 구현체를 선택시킨다 - 생성자 주입
     @Bean // 스프링 컨테이너에 등록이 된다
